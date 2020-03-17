@@ -1,54 +1,58 @@
-<select class="ui search dropdown" >
-    <option value="">State</option>
-    <option value="AL">Alabama</option>
-    <option value="AK">Alaska</option>
-    <option value="AZ">Arizona</option>
-    <option value="AR">Arkansas</option>
-    <option value="CA">California</option>
-    <option value="CO">Colorado</option>
-    <option value="CT">Connecticut</option>
-    <option value="DE">Delaware</option>
-    <option value="DC">District Of Columbia</option>
-    <option value="FL">Florida</option>
-    <option value="GA">Georgia</option>
-    <option value="HI">Hawaii</option>
-    <option value="ID">Idaho</option>
-    <option value="IL">Illinois</option>
-    <option value="IN">Indiana</option>
-    <option value="IA">Iowa</option>
-    <option value="KS">Kansas</option>
-    <option value="KY">Kentucky</option>
-    <option value="LA">Louisiana</option>
-    <option value="ME">Maine</option>
-    <option value="MD">Maryland</option>
-    <option value="MA">Massachusetts</option>
-    <option value="MI">Michigan</option>
-    <option value="MN">Minnesota</option>
-    <option value="MS">Mississippi</option>
-    <option value="MO">Missouri</option>
-    <option value="MT">Montana</option>
-    <option value="NE">Nebraska</option>
-    <option value="NV">Nevada</option>
-    <option value="NH">New Hampshire</option>
-    <option value="NJ">New Jersey</option>
-    <option value="NM">New Mexico</option>
-    <option value="NY">New York</option>
-    <option value="NC">North Carolina</option>
-    <option value="ND">North Dakota</option>
-    <option value="OH">Ohio</option>
-    <option value="OK">Oklahoma</option>
-    <option value="OR">Oregon</option>
-    <option value="PA">Pennsylvania</option>
-    <option value="RI">Rhode Island</option>
-    <option value="SC">South Carolina</option>
-    <option value="SD">South Dakota</option>
-    <option value="TN">Tennessee</option>
-    <option value="TX">Texas</option>
-    <option value="UT">Utah</option>
-    <option value="VT">Vermont</option>
-    <option value="VA">Virginia</option>
-    <option value="WA">Washington</option>
-    <option value="WV">West Virginia</option>
-    <option value="WI">Wisconsin</option>
-    <option value="WY">Wyoming</option>
-  </select>
+<div class="background">
+  <section class="container paneel-inleiding">
+    <h2>Inleiding</h2>
+    <div class="row justify-content-between align-items-center">
+      <img src="../../assets/img/map.png" alt="map" width="200px" height="200px">
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa fugit doloribus temporibus aut magni at facere
+        quis minus earum aliquam quod doloremque, est quia, autem mollitia odio. Aperiam, aliquid earum? Lorem ipsum dolor,
+        sit amet consectetur adipisicing elit. Culpa fugit doloribus temporibus aut magni at facere quis
+        minus earum aliquam quod doloremque, est quia, autem mollitia odio. Aperiam, aliquid earum? Lorem ipsum dolor,
+        sit amet consectetur adipisicing elit. Culpa fugit doloribus temporibus aut magni at facere quis
+        minus earum aliquam quod doloremque, est quia, autem mollitia odio. Aperiam, aliquid earum?
+      </p>
+
+    </div>
+  </section>
+  <section class="container paneel-gemeentes">
+    <div class="row-fluid">
+      <h2>Kies uw gemeente:</h2>
+      <div class="form-group">
+        <mat-form-field class="example-full-width">
+          <mat-label>Stad</mat-label>
+          <input
+            type="text"
+            aria-label="Stad"
+            matInput
+            [formControl]="locatieControl"
+            [matAutocomplete]="auto"
+            [(ngModel)]="locatieValue"
+          />
+          <mat-error *ngIf="locatieControl.invalid">Gelieve een stad aan te duiden</mat-error>
+          <mat-autocomplete 
+            #auto="matAutocomplete"
+            [displayWith]="displayLocatie"
+            (stedenSelected)="onSelectionChangedLocatie($event)"
+          >
+            <mat-option
+              *ngFor="let stad of filteredSteden | async"
+              [value]="stad"
+            >
+              {{ stad.name }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+      
+    </div>
+  </section>
+  <section class="container paneel-gemeentes">
+    <h2>Weersverwachting voor {{ test }}</h2>
+    <div class="col-md-8 justify-content-center">
+      <canvas id="canvas" > {{ chart }}</canvas>
+  </div>
+  </section>
+  <section>
+    
+  </section>
+</div>

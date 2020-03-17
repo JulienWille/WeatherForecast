@@ -1,0 +1,26 @@
+$color-blue: rgb(0, 0, 49);
+.background{
+    background-color: #efefef;
+
+}
+
+.paneel-inleiding, .paneel-gemeentes{
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+
+}
+.paneel-inleiding{
+    color: $color-blue;
+
+}
+h2{
+    color: $color-blue;
+}
+
+p{
+    width: 80%;
+}
