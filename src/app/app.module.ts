@@ -8,7 +8,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 
  import {WeatherService} from './weather.service';
- import {HttpClientModule} from '@angular/common/http'
+ import { HttpClientModule, HttpHeaders, HttpClientJsonpModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,13 +16,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MomentPipe } from './moment.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HeaderComponent,
-    BodyComponent
+    BodyComponent,
+    MomentPipe
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     MatAutocompleteModule,
     HttpClientModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientJsonpModule
     ],
   providers: [WeatherService],
   bootstrap: [AppComponent]

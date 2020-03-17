@@ -47,12 +47,34 @@
     </div>
   </section>
   <section class="container paneel-gemeentes">
-    <h2>Weersverwachting voor {{ test }}</h2>
     <div class="col-md-8 justify-content-center">
-      <canvas id="canvas" > {{ chart }}</canvas>
+      <canvas id="canvas" >     <h2>Weersverwachting voor {{ test }}</h2>
+
+        {{ chart }}</canvas>
   </div>
   </section>
   <section>
-    
+    <div style="background-color: #F0F0F0; width: 75%; padding: 20px; border: 1px solid #CCC; ">
+      <p *ngIf="weather.length == 0">Searching...</p>
+      <div *ngIf="weather.length > 0">
+          <table style="width: 100%; text-align: center">
+              <thead>
+                <tr>
+                  <th *ngFor="let forecast of weather">
+                    {{forecast.weekday}} {{ forecast.utcTime | moment  }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td *ngFor="let forecast of weather">
+                          <img [src]="forecast.iconLink" />
+                          <p>{{ forecast.highTemperature }}°C | {{ forecast.lowTemperature }}°C</p>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+    </div>
   </section>
 </div>
