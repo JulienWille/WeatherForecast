@@ -1,0 +1,65 @@
+$color-blue:  #8AD4E1;
+$color-white: #e3e9e7;
+
+
+.background-white{
+    background-color: $color-blue;
+
+}
+.paneel-inleiding{
+   height: 100%;
+}
+.paneel-gemeentes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 620px;
+}
+h2{
+    color:  rgb(0, 0, 49);
+}
+h3{
+
+    font-weight: bold;
+    font-size: 1.1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h3, small,p {
+    color: black;
+
+}
+.weer-week{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.weer-nav:hover{
+    background-color: #529eac;
+    transition: 0.5s;
+}
+.weer-item{
+    list-style: none;
+    text-align: center;
+}
+.weer-link{
+    margin-top: 10px;
+    padding: 1.3em;
+    display: block;
+    text-decoration: none;
+}
+
+.temp-max{
+color:red
+}
+.temp-min{
+    color: blue;
+}
+.row{
+    justify-content: center;
+    // margin-bottom: 10px;
+}
+.weer-icon{
+    padding: 1em;
+}

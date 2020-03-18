@@ -1,0 +1,78 @@
+<div class="background-white border-top border-bottom border-secondary">
+  <section class="container paneel-inleiding">
+    <div>
+      <p *ngIf="weather.length == 0"> Searching...</p>
+      <div class="weer-week" *ngIf="weather.length > 0" >
+        <ul class="weer-nav" *ngFor="let forecast of weather">
+          <li class="weer-item">
+            <a class="weer-link" href="#!">
+              <div class="row">
+                <h3>{{forecast.weekday}} <small> {{ forecast.utcTime | moment  }}</small> </h3>
+              </div>
+              <img [src]="forecast.iconLink" class="weer-icon" />
+              <p><span class="temp-max">{{ forecast.highTemperature }}°C</span>|<span class="temp-min">{{ forecast.lowTemperature }}°C</span></p>
+            </a>
+          </li>
+        </ul>
+         
+      </div>
+    </div>
+  </section>
+
+</div>
+<div class="background-blue">
+
+  <!-- <section class="container paneel-inleiding">
+    <h2>Inleiding</h2>
+    <div class="row justify-content-between align-items-center">
+      <img src="../../assets/img/map.png" alt="map" width="200px" height="200px">
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa fugit doloribus temporibus aut magni at facere
+        quis minus earum aliquam quod doloremque, est quia, autem mollitia odio. Aperiam, aliquid earum? Lorem ipsum dolor,
+        sit amet consectetur adipisicing elit. Culpa fugit doloribus temporibus aut magni at facere quis
+        minus earum aliquam quod doloremque, est quia, autem mollitia odio. Aperiam, aliquid earum? Lorem ipsum dolor,
+        sit amet consectetur adipisicing elit. Culpa fugit doloribus temporibus aut magni at facere quis
+        minus earum aliquam quod doloremque, est quia, autem mollitia odio. Aperiam, aliquid earum?
+      </p>
+
+    </div>
+  </section> -->
+  <section class="container paneel-gemeentes  ">
+      <div>    
+      <h2>Kies uw gemeente:</h2>
+      <div class="form-group">
+        <mat-form-field class="example-full-width">
+          <mat-label>Stad</mat-label>
+          <input
+            type="text"
+            aria-label="Stad"
+            matInput
+            [formControl]="locatieControl"
+            [matAutocomplete]="auto"
+            [(ngModel)]="locatieValue"
+          />
+          <mat-error *ngIf="locatieControl.invalid">Gelieve een stad aan te duiden</mat-error>
+          <mat-autocomplete 
+            #auto="matAutocomplete"
+            [displayWith]="displayLocatie"
+            (stedenSelected)="onSelectionChangedLocatie($event)"
+          >
+            <mat-option
+              *ngFor="let stad of filteredSteden | async"
+              [value]="stad"
+            >
+              {{ stad.name }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+    </div>
+      <div class="col-md-8">
+        <canvas id="canvas">       <h2>Weersverwachting voor {{ test }}</h2>
+  
+          {{ chart }}</canvas>
+    </div>
+  </section>
+ 
+  
+</div>
